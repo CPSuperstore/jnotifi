@@ -1,4 +1,4 @@
-package com.cpsuperstore.jnotifi;
+package com.cpsuperstore.jnotifi.publisher;
 
 public class PublicationResponse {
     private final int success;

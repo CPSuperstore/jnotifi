@@ -1,5 +1,5 @@
-import com.cpsuperstore.jnotifi.PublicationResponse;
-import com.cpsuperstore.jnotifi.Publisher;
+import com.cpsuperstore.jnotifi.publisher.PublicationResponse;
+import com.cpsuperstore.jnotifi.publisher.Publisher;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 

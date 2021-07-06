@@ -1,5 +1,6 @@
-package com.cpsuperstore.jnotifi;
+package com.cpsuperstore.jnotifi.publisher;
 
+import com.cpsuperstore.jnotifi.Constants;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
