@@ -1,7 +1,6 @@
 package com.cpsuperstore.jnotifi.subscriber;
 
 import com.cpsuperstore.jnotifi.Constants;
-import com.cpsuperstore.jnotifi.exceptions.FailedToPublishException;
 import com.cpsuperstore.jnotifi.exceptions.FailedToSubscribeException;
 import com.google.gson.Gson;
 
@@ -16,6 +15,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 public class Subscriber {
+
     private final String clientID;
     private final String clientSecret;
     private final Gson gson = new Gson();

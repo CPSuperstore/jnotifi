@@ -1,6 +1,9 @@
-import com.cpsuperstore.jnotifi.subscriber.Message;
-import com.cpsuperstore.jnotifi.subscriber.Subscriber;
+package com.cpsuperstore.jnotifi.subscriber;
+
+import com.cpsuperstore.jnotifi.Common;
+import com.cpsuperstore.jnotifi.publisher.PublisherTest;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SubscriberTest {
     private final String CLIENT_ID = Common.getSubscriber("clientId");
@@ -8,12 +11,16 @@ public class SubscriberTest {
 
     @Test
     void receiveMessage() {
+        int messageCount = new PublisherTest().publishTestMessages();
+
         Subscriber subscriber = new Subscriber(CLIENT_ID, CLIENT_SECRET);
         Message[] messages = subscriber.pollMessages();
 
+        assertEquals(messageCount, messages.length);
+
         for (Message message : messages){
-            System.out.println(message);
             message.confirmMessage();
+            assertTrue(message.isConfirmed());
         }
     }
 }

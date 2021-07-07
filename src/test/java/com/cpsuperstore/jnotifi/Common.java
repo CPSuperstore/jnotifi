@@ -1,3 +1,5 @@
+package com.cpsuperstore.jnotifi;
+
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -8,6 +10,7 @@ import java.util.Scanner;
 public class Common {
     private static Gson gson = new Gson();
     private static final String CREDENTIALS_FILE = "credentials.json";
+    public static final String MESSAGE = "Notifi @ " + (System.currentTimeMillis() / 1000L);
 
     private static Map<String, Map<String, String>> credentials;
 
