@@ -12,6 +12,7 @@ public class SubscriberTest {
         Message[] messages = subscriber.pollMessages();
 
         for (Message message : messages){
+            System.out.println(message);
             message.confirmMessage();
         }
     }

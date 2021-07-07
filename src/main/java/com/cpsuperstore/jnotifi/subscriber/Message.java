@@ -1,10 +1,12 @@
 package com.cpsuperstore.jnotifi.subscriber;
 
 import com.cpsuperstore.jnotifi.Constants;
+import com.cpsuperstore.jnotifi.exceptions.FailedToConfirmMessageException;
+import com.cpsuperstore.jnotifi.exceptions.FailedToSubscribeException;
+import com.cpsuperstore.jnotifi.publisher.PublicationResponse;
 import com.google.gson.Gson;
 
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -63,12 +65,17 @@ public class Message {
                 os.write(input, 0, input.length);
             }
 
+            con.getInputStream();
+
             confirmed = true;
 
-        } catch (MalformedURLException ignored) {
-
-        } catch (IOException e) {
+        } catch (MalformedURLException e) {
             e.printStackTrace();
+
+        } catch (FileNotFoundException e) {
+            throw new FailedToConfirmMessageException("Notification confirmation endpoint not found. Try updating the jnotifi library or contact Notifi support", id);
+        } catch (IOException e) {
+            throw new FailedToConfirmMessageException(e.getMessage(), id);
         }
     }
 

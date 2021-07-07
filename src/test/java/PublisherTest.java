@@ -11,7 +11,7 @@ public class PublisherTest {
     @Test
     void sendMessage() {
         Publisher publisher = new Publisher(CLIENT_ID, CLIENT_SECRET);
-        PublicationResponse response = publisher.publish("From Java", "dev");
+        PublicationResponse response = publisher.publish("From Java", "tmp");
         System.out.println(response);
     }
 }

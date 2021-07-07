@@ -1,9 +1,12 @@
 package com.cpsuperstore.jnotifi.subscriber;
 
 import com.cpsuperstore.jnotifi.Constants;
+import com.cpsuperstore.jnotifi.exceptions.FailedToPublishException;
+import com.cpsuperstore.jnotifi.exceptions.FailedToSubscribeException;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -54,8 +57,10 @@ public class Subscriber {
 
         } catch (MalformedURLException ignored) {
 
+        } catch (FileNotFoundException e) {
+            throw new FailedToSubscribeException("Notification subscribe endpoint not found. Try updating the jnotifi library or contact Notifi support");
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new FailedToSubscribeException(e.getMessage());
         }
         return null;
     }
