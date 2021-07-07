@@ -19,6 +19,7 @@ public class Common {
         try {
             File myObj = new File(CREDENTIALS_FILE);
             Scanner myReader = new Scanner(myObj);
+
             StringBuilder data = new StringBuilder();
             while (myReader.hasNextLine()) {
                 data.append(myReader.nextLine());

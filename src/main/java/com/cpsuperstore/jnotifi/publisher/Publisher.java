@@ -1,12 +1,10 @@
 package com.cpsuperstore.jnotifi.publisher;
 
 import com.cpsuperstore.jnotifi.Constants;
+import com.cpsuperstore.jnotifi.exceptions.FailedToPublishException;
 import com.google.gson.Gson;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -90,8 +88,10 @@ public class Publisher {
 
         } catch (MalformedURLException ignored) {
 
+        } catch (FileNotFoundException e) {
+            throw new FailedToPublishException("Notification publish endpoint not found. Try updating the jnotifi library or contact Notifi support");
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new FailedToPublishException(e.getMessage());
         }
         return null;
     }
