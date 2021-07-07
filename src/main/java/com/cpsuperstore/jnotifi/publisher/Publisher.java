@@ -89,7 +89,7 @@ public class Publisher {
         } catch (MalformedURLException ignored) {
 
         } catch (FileNotFoundException e) {
-            throw new FailedToPublishException("Notification publish endpoint not found. Try updating the jnotifi library or contact Notifi support");
+            throw new FailedToPublishException("Most likely invalid credentials. Alternatively try updating the jnotifi library or contact Notifi support.");
         } catch (IOException e) {
             throw new FailedToPublishException(e.getMessage());
         }

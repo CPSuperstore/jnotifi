@@ -73,7 +73,7 @@ public class Message {
             e.printStackTrace();
 
         } catch (FileNotFoundException e) {
-            throw new FailedToConfirmMessageException("Notification confirmation endpoint not found. Try updating the jnotifi library or contact Notifi support", id);
+            throw new FailedToConfirmMessageException("Most likely invalid credentials. Alternatively try updating the jnotifi library or contact Notifi support.", id);
         } catch (IOException e) {
             throw new FailedToConfirmMessageException(e.getMessage(), id);
         }

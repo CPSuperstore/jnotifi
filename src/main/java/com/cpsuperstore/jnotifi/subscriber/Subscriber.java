@@ -58,7 +58,7 @@ public class Subscriber {
         } catch (MalformedURLException ignored) {
 
         } catch (FileNotFoundException e) {
-            throw new FailedToSubscribeException("Notification subscribe endpoint not found. Try updating the jnotifi library or contact Notifi support");
+            throw new FailedToSubscribeException("Most likely invalid credentials. Alternatively try updating the jnotifi library or contact Notifi support.");
         } catch (IOException e) {
             throw new FailedToSubscribeException(e.getMessage());
         }

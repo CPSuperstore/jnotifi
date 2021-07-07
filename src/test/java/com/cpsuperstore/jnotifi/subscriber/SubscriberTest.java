@@ -16,10 +16,11 @@ public class SubscriberTest {
         Subscriber subscriber = new Subscriber(CLIENT_ID, CLIENT_SECRET);
         Message[] messages = subscriber.pollMessages();
 
-        assertEquals(messageCount, messages.length);
+        assertTrue(messages.length >= messageCount);
 
         for (Message message : messages){
             message.confirmMessage();
+            assertEquals(Common.MESSAGE, message.getBody());
             assertTrue(message.isConfirmed());
         }
     }
